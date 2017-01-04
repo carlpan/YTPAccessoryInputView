@@ -1,0 +1,6 @@
+framework module YTPAccessoryInputView {
+  umbrella header "YTPAccessoryInputView-umbrella.h"
+
+  export *
+  module * { export * }
+}
