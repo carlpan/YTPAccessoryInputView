@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'YTPAccessoryInputView_Example' do
+  pod 'YTPAccessoryInputView', :path => '../'
+
+  target 'YTPAccessoryInputView_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+  pod 'Expecta'
+  end
+end
