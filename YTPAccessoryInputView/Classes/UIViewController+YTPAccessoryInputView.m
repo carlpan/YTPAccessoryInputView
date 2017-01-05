@@ -19,6 +19,7 @@ static char kYTPInputToolBarTextFieldKey;
 static char kYTPAccessoryInputContainerViewKey;
 static char kYTPAccessoryInputViewTriggerButtonKey;
 static char kYTPInternalTableViewKey;
+static char kYTPInternalCollectionViewKey;
 
 @interface UIViewController (_YTPAccessoryInputView)
 
@@ -27,6 +28,8 @@ static char kYTPInternalTableViewKey;
 @property (strong, nonatomic, setter=ytp_setInputTextField:) UITextField *ytp_inputTextField;
 
 @property (strong, nonatomic, setter=ytp_setInternalTableView:) UITableView *ytp_internalTableView;
+
+@property (strong, nonatomic, setter=ytp_setInternalCollectionView:) UICollectionView *ytp_internalCollectionView;
 
 @end
 
@@ -92,6 +95,14 @@ static char kYTPInternalTableViewKey;
     objc_setAssociatedObject(self, &kYTPInternalTableViewKey, internalTableView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (UICollectionView *)ytp_internalCollectionView {
+    return (UICollectionView *)objc_getAssociatedObject(self, &kYTPInternalCollectionViewKey);
+}
+
+- (void)ytp_setInternalCollectionView:(UICollectionView *)internalCollectionView {
+    objc_setAssociatedObject(self, &kYTPInternalCollectionViewKey, internalCollectionView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 
 #pragma mark - Setup
 
@@ -105,7 +116,7 @@ static char kYTPInternalTableViewKey;
     [self setInternalTextField];
     
     // Get TableView
-    [self setInternalTableView];
+    [self setInternalScrollView];
     
     // Container view
     [self setInternalAccessoryInputView];
@@ -207,10 +218,15 @@ static char kYTPInternalTableViewKey;
     }
 }
 
-- (void)setInternalTableView {
+- (void)setInternalScrollView {
     for (UIView *subView in self.view.subviews) {
         if ([subView isKindOfClass:[UITableView class]]) {
             self.ytp_internalTableView = (UITableView *)subView;
+            break;
+        }
+        
+        if ([subView isKindOfClass:[UICollectionView class]]) {
+            self.ytp_internalCollectionView = (UICollectionView *)subView;
             break;
         }
     }
@@ -294,9 +310,26 @@ static char kYTPInternalTableViewKey;
 
 - (void)scrollTableViewToBottom:(BOOL)animated {
     NSInteger sections = self.ytp_internalTableView.numberOfSections;
+    
+    if (sections == 0) {
+        return;
+    }
+    
     NSInteger rowsInLastSection = [self.ytp_internalTableView numberOfRowsInSection:sections-1];
     
     [self.ytp_internalTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:rowsInLastSection-1 inSection:sections-1] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+}
+
+- (void)scrollCollectionViewToBottom:(BOOL)animated {
+    NSInteger sections = self.ytp_internalCollectionView.numberOfSections;
+    
+    if (sections == 0) {
+        return;
+    }
+    
+    NSInteger itemsInLastSection = [self.ytp_internalCollectionView numberOfItemsInSection:sections-1];
+    
+    [self.ytp_internalCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:itemsInLastSection-1 inSection:sections-1] atScrollPosition:UICollectionViewScrollPositionBottom animated:animated];
 }
 
 
