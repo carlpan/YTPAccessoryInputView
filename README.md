@@ -5,6 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/YTPAccessoryInputView.svg?style=flat)](http://cocoapods.org/pods/YTPAccessoryInputView)
 [![Platform](https://img.shields.io/cocoapods/p/YTPAccessoryInputView.svg?style=flat)](http://cocoapods.org/pods/YTPAccessoryInputView)
 
+Easy way to add accessory input view to custom input tool bar.
+
+## Demo
+![InputViewDemo](https://www.dropbox.com/s/xrf508jno50x05k/demo.gif?dl=0)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

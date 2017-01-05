@@ -7,6 +7,7 @@
 //
 
 #import "YTPViewController.h"
+#import "InputView.h"
 @import YTPAccessoryInputView;
 
 
@@ -40,6 +41,8 @@
     [self.inputToolBarButton addTarget:self action:@selector(inputToolBarTapped:) forControlEvents:UIControlEventTouchUpInside];
     
     [self setUpAccessoryInputView];
+    
+    self.commentTextField.returnKeyType = UIReturnKeyDone;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,11 +52,8 @@
 }
 
 - (void)setUpAccessoryInputView {
-    // Create accessory view
-    CGFloat viewWidth = CGRectGetWidth(self.view.frame);
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 200.0f)];
-    [view setBackgroundColor:[UIColor blueColor]];
-    self.accessoryInputView = view;
+    UIView *inputView = [[[NSBundle mainBundle] loadNibNamed:@"InputView" owner:self options:nil] firstObject];
+    self.accessoryInputView = inputView;
     
     // set input tool bar
     self.inputToolBar = self.commentInputToolBar;
