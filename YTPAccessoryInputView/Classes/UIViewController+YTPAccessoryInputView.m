@@ -16,7 +16,6 @@ static char kYTPInputToolBarBottomSpaceKey;
 
 // Private
 static char kYTPInputToolBarTextFieldKey;
-static char kYTPAccessoryInputContainerViewKey;
 static char kYTPAccessoryInputViewTriggerButtonKey;
 static char kYTPInternalTableViewKey;
 static char kYTPInternalCollectionViewKey;
