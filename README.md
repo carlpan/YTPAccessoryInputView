@@ -8,7 +8,7 @@
 Easy way to add accessory input view to custom input tool bar.
 
 ## Demo
-![Alt Text](https://github.com/carlpan/YTPAccessoryInputView/Demo/demo.gif)
+![Alt Text](https://github.com/carlpan/YTPAccessoryInputView/tree/master/Demo/demo.gif)
 
 ## Example
 
