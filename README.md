@@ -12,6 +12,7 @@ Easy way to add accessory input view to custom input tool bar.
 Typically in chat page or comment page of the app, you will need to attach an input tool bar to the bottom of the view. This input tool bar will contain a textfield and a button. Sometimes you will find writing chat messages or comments not enough, you will probably want to send stickers, payments, contact info, location info, etc. The easiest way you would do is to add an extra button to the input tool bar and connect it to an action sheet. With this category, you can do more than that, just design an input view and tell the ViewController your input view.
 
 ## Demo
+<img src="https://raw.githubusercontent.com/carlpan/YTPAccessoryInputView/master/Demo/demo.gif" width="250" height="445">
 
 ## Installation
 *YTPAccessoryInputView requires iOS 10.0 or later.*
