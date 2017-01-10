@@ -52,10 +52,15 @@ Next step is to connect the button to trigger your custom input view. In the IBA
 ``` Objective-C
 [self ytp_toggleAccessoryInputViewWithButton:self.chatInputToolBarButton];
 ```
-Finally, if you want dissmiss keyboard or your custom accessory input view, for example
+If you want dissmiss keyboard or your custom accessory input view, for example
 ```Objective-C
 [self ytp_dismissKeyboardOrAccessoryInputView];
 ```
+Finally, you need to call the clean up method which dismisses keyboard observers. The ideal place to put it is in viewDidDisappear.
+```Objective-C
+[self ytp_resetViewControllerStatus];
+```
+
 That's it!!
 
 ## Author
