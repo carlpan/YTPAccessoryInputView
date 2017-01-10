@@ -13,6 +13,7 @@ Typically in chat page or comment page of the app, you will need to attach an in
 
 ## Demo
 <img src="https://raw.githubusercontent.com/carlpan/YTPAccessoryInputView/master/Demo/demo.gif" width="250" height="445">
+<img src="https://raw.githubusercontent.com/carlpan/YTPAccessoryInputView/master/Demo/Demo2.gif" width="250" height="455">
 
 ## Installation
 *YTPAccessoryInputView requires iOS 10.0 or later.*

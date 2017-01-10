@@ -44,6 +44,13 @@
     self.commentTextField.returnKeyType = UIReturnKeyDone;
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    // clean up
+    [self ytp_resetViewControllerStatus];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -39,6 +39,13 @@
     [self setUpAccessoryInputView];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    // clean up
+    [self ytp_resetViewControllerStatus];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -59,7 +66,7 @@
     [self ytp_configureAccessoryInputView];
 }
 
-- (void)configureScrollView:(InputScrollView *)inputView {    
+- (void)configureScrollView:(InputScrollView *)inputView {
     CGFloat x = 16.0f, y = 15.0f, stickerX = 65.0f, stickerY = 65.0f, xDiff = 28.0f;
     
     __block CGFloat cx = x;
