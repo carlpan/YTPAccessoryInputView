@@ -37,33 +37,33 @@ static char kYTPInternalCollectionViewKey;
 
 #pragma mark - Objc Runtime - Public - Accessory Input View
 
-- (UIView *)accessoryInputView {
+- (UIView *)ytp_accessoryInputView {
     return (UIView *)objc_getAssociatedObject(self, &kYTPAccessoryInputViewKey);
 }
 
-- (void)setAccessoryInputView:(UIView *)accessoryInputView {
+- (void)ytp_setAccessoryInputView:(UIView *)accessoryInputView {
     objc_setAssociatedObject(self, &kYTPAccessoryInputViewKey, accessoryInputView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
 #pragma mark - Objc Runtime - Public - Input Tool Bar
 
-- (UIView *)inputToolBar {
+- (UIView *)ytp_inputToolBar {
     return (UIView *)objc_getAssociatedObject(self, &kYTPInputToolBarKey);
 }
 
-- (void)setInputToolBar:(UIView *)inputToolBar {
+- (void)ytp_setInputToolBar:(UIView *)inputToolBar {
     objc_setAssociatedObject(self, &kYTPInputToolBarKey, inputToolBar, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
 #pragma mark - Objc Runtime - Public - Input Tool Bar Bottom Space
 
-- (NSLayoutConstraint *)inputToolBarBottomSpace {
+- (NSLayoutConstraint *)ytp_inputToolBarBottomSpace {
     return (NSLayoutConstraint *)objc_getAssociatedObject(self, &kYTPInputToolBarBottomSpaceKey);
 }
 
-- (void)setInputToolBarBottomSpace:(NSLayoutConstraint *)inputToolBarBottomSpace {
+- (void)ytp_setInputToolBarBottomSpace:(NSLayoutConstraint *)inputToolBarBottomSpace {
     objc_setAssociatedObject(self, &kYTPInputToolBarBottomSpaceKey, inputToolBarBottomSpace, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -107,7 +107,7 @@ static char kYTPInternalCollectionViewKey;
 
 - (void)ytp_configureAccessoryInputView {
     // Set bottom constraint
-    if (!self.inputToolBarBottomSpace) {
+    if (!self.ytp_inputToolBarBottomSpace) {
         [self associateConstraint];
     }
     
@@ -137,18 +137,18 @@ static char kYTPInternalCollectionViewKey;
             [UIView animateWithDuration:0.3 animations:^{
                 [self.ytp_inputTextField resignFirstResponder];
                 
-                self.inputToolBarBottomSpace.constant = self.accessoryInputView.frame.size.height;
+                self.ytp_inputToolBarBottomSpace.constant = self.ytp_accessoryInputView.frame.size.height;
                 
                 // bring view up
-                self.accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, -self.accessoryInputView.frame.size.height);
+                self.ytp_accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, -self.ytp_accessoryInputView.frame.size.height);
             }];
         } else {
             // bring keyboard up
             [UIView animateWithDuration:0.1 animations:^{
-                self.inputToolBarBottomSpace.constant = 0.0f;
+                self.ytp_inputToolBarBottomSpace.constant = 0.0f;
                 
                 // bring view down
-                self.accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, self.accessoryInputView.frame.size.height);
+                self.ytp_accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, self.ytp_accessoryInputView.frame.size.height);
                 
                 [self.ytp_inputTextField becomeFirstResponder];
             }];
@@ -164,10 +164,10 @@ static char kYTPInternalCollectionViewKey;
             }
             
             // update bottom constraint
-            self.inputToolBarBottomSpace.constant = self.accessoryInputView.frame.size.height;
+            self.ytp_inputToolBarBottomSpace.constant = self.ytp_accessoryInputView.frame.size.height;
     
             // bring container view up
-            self.accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, -self.accessoryInputView.frame.size.height);
+            self.ytp_accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, -self.ytp_accessoryInputView.frame.size.height);
         } completion:^(BOOL finished) {
             // scroll
             [self scrollScrollViewToBottom:NO];
@@ -186,10 +186,10 @@ static char kYTPInternalCollectionViewKey;
     } else {
         // dissmiss container view
         [UIView animateWithDuration:0.1 animations:^{
-            self.inputToolBarBottomSpace.constant = 0.0f;
+            self.ytp_inputToolBarBottomSpace.constant = 0.0f;
             
             // bring container view down
-            self.accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, self.accessoryInputView.frame.size.height);
+            self.ytp_accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, self.ytp_accessoryInputView.frame.size.height);
         } completion:^(BOOL finished) {
             self.ytp_customButton.selected = NO;
         }];
@@ -217,14 +217,14 @@ static char kYTPInternalCollectionViewKey;
 - (void)setInternalAccessoryInputView {
     CGFloat viewWidth = CGRectGetWidth(self.view.frame);
     CGFloat viewHeight = CGRectGetHeight(self.view.frame);
-    CGFloat inputViewHeight = self.accessoryInputView.frame.size.height;
+    CGFloat inputViewHeight = self.ytp_accessoryInputView.frame.size.height;
     
-    [self.accessoryInputView setFrame:CGRectMake(0, viewHeight, viewWidth, inputViewHeight)];
-    [self.view addSubview:self.accessoryInputView];
+    [self.ytp_accessoryInputView setFrame:CGRectMake(0, viewHeight, viewWidth, inputViewHeight)];
+    [self.view addSubview:self.ytp_accessoryInputView];
 }
 
 - (void)setInternalTextField {
-    for (UIView *subView in self.inputToolBar.subviews) {
+    for (UIView *subView in self.ytp_inputToolBar.subviews) {
         if ([subView isKindOfClass:[UITextField class]]) {
             self.ytp_inputTextField = (UITextField *)subView;
             break;
@@ -269,15 +269,15 @@ static char kYTPInternalCollectionViewKey;
     // Check if button selected
     if (self.ytp_customButton.selected) {
         [UIView animateWithDuration:0.1 animations:^{
-            self.accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, self.accessoryInputView.frame.size.height);
-            self.inputToolBarBottomSpace.constant = kbHeight;
+            self.ytp_accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, self.ytp_accessoryInputView.frame.size.height);
+            self.ytp_inputToolBarBottomSpace.constant = kbHeight;
         } completion:^(BOOL finished) {
             [self scrollScrollViewToBottom:NO];
             self.ytp_customButton.selected = NO;
         }];
     } else {
         [UIView animateWithDuration:rate.floatValue animations:^{
-            self.inputToolBarBottomSpace.constant = kbHeight;
+            self.ytp_inputToolBarBottomSpace.constant = kbHeight;
         } completion:^(BOOL finished) {
             [self scrollScrollViewToBottom:NO];
         }];
@@ -290,7 +290,7 @@ static char kYTPInternalCollectionViewKey;
     
     // move
     [UIView animateWithDuration:rate.floatValue animations:^{
-        self.inputToolBarBottomSpace.constant = 0;
+        self.ytp_inputToolBarBottomSpace.constant = 0;
     }];
 }
 
@@ -301,18 +301,18 @@ static char kYTPInternalCollectionViewKey;
     for (NSLayoutConstraint *constraint in self.view.constraints) {
         if ([self isBottomConstraint:constraint]) {
             //NSLog(@"Found constriant: %f", constraint.constant);
-            self.inputToolBarBottomSpace = constraint;
+            self.ytp_inputToolBarBottomSpace = constraint;
             break;
         }
     }
 }
 
 - (BOOL)firstItemMatchesBottomConstraint:(NSLayoutConstraint *)constraint {
-    return constraint.firstItem == self.inputToolBar && constraint.firstAttribute == NSLayoutAttributeBottom;
+    return constraint.firstItem == self.ytp_inputToolBar && constraint.firstAttribute == NSLayoutAttributeBottom;
 }
 
 - (BOOL)secondItemMatchesBottomConstraint:(NSLayoutConstraint *)constraint {
-    return constraint.secondItem == self.inputToolBar && constraint.secondAttribute == NSLayoutAttributeBottom;
+    return constraint.secondItem == self.ytp_inputToolBar && constraint.secondAttribute == NSLayoutAttributeBottom;
 }
 
 - (BOOL)isBottomConstraint:(NSLayoutConstraint *)constraint {

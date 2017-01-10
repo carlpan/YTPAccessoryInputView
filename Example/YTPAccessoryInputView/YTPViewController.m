@@ -61,11 +61,11 @@
 
 - (void)setUpAccessoryInputView {
     UIView *inputView = [[[NSBundle mainBundle] loadNibNamed:@"InputView" owner:self options:nil] firstObject];
-    self.accessoryInputView = inputView;
+    self.ytp_accessoryInputView = inputView;
     
     // set input tool bar
-    self.inputToolBar = self.commentInputToolBar;
-    self.inputToolBarBottomSpace = self.bottomConstraint;
+    self.ytp_inputToolBar = self.commentInputToolBar;
+    self.ytp_inputToolBarBottomSpace = self.bottomConstraint;
     
     [self ytp_configureAccessoryInputView];
 }

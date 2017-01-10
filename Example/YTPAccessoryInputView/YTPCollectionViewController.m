@@ -57,11 +57,11 @@
     // Test with scrollview
     InputScrollView *inputScrollView = [[[NSBundle mainBundle] loadNibNamed:@"InputScrollView" owner:self options:nil] firstObject];
     [self configureScrollView:inputScrollView];
-    self.accessoryInputView = inputScrollView;
+    self.ytp_accessoryInputView = inputScrollView;
     
     // set input tool bar
-    self.inputToolBar = self.chatInputToolBar;
-    self.inputToolBarBottomSpace = self.chatBottomConstraint;
+    self.ytp_inputToolBar = self.chatInputToolBar;
+    self.ytp_inputToolBarBottomSpace = self.chatBottomConstraint;
 
     [self ytp_configureAccessoryInputView];
 }

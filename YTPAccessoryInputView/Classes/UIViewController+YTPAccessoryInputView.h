@@ -16,12 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  This property is required. It is the main view for the accessory input view.
  *  It must be provided in the beginning.
  */
-@property (strong, nonatomic) UIView *accessoryInputView;
+@property (strong, nonatomic, setter=ytp_setAccessoryInputView:) UIView *ytp_accessoryInputView;
 
 /**
  *  This property holds the reference to the input tool bar used for chat/comment etc.
  */
-@property (strong, nonatomic) UIView *inputToolBar;
+@property (strong, nonatomic, setter=ytp_setInputToolBar:) UIView *ytp_inputToolBar;
 
 /**
  *  Specifies the bottom layout constraint of the custom input tool bar. It is needed for
@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @discussion Setting this property is optional, but will remove the need to
  *  manually looping tool bar's constraints to find the bottom layout constraint.
  */
-@property (strong, nonatomic) NSLayoutConstraint *inputToolBarBottomSpace;
+@property (strong, nonatomic, setter=ytp_setInputToolBarBottomSpace:) NSLayoutConstraint *ytp_inputToolBarBottomSpace;
 
 /**
  *  This method is used to setup necessary internal parameters.
