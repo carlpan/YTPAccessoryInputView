@@ -52,6 +52,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)ytp_dismissKeyboardOrAccessoryInputView;
 
+
+/**
+ *  This method must be called when you are leaving the current view controller.
+ *  @tip viewDidDisappear is the best place to call it.
+ *  @warning If you do not call this method, keyboard observer will remain in other views.
+ */
+- (void)ytp_resetViewControllerStatus;
+
 @end
 
 NS_ASSUME_NONNULL_END

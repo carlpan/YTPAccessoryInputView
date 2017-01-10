@@ -7,7 +7,6 @@
 //
 
 #import "YTPViewController.h"
-#import "InputView.h"
 @import YTPAccessoryInputView;
 
 
@@ -50,6 +49,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Accessory Input View
 
 - (void)setUpAccessoryInputView {
     UIView *inputView = [[[NSBundle mainBundle] loadNibNamed:@"InputView" owner:self options:nil] firstObject];

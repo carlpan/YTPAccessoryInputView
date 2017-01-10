@@ -24,8 +24,11 @@
 		6DDE05D6966EAA4325601E9F /* Pods_YTPAccessoryInputView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308274E6A3BA90B557D427DC /* Pods_YTPAccessoryInputView_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		B31485821E1D7D7A007FCF99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31485811E1D7D7A007FCF99 /* LaunchScreen.storyboard */; };
+		B31FB85E1E248DA40030B3A7 /* YTPCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31FB85D1E248DA40030B3A7 /* YTPCollectionViewController.m */; };
+		B31FB8611E249DBF0030B3A7 /* YTPChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B31FB8601E249DBF0030B3A7 /* YTPChatCell.m */; };
+		B31FB8641E24A70B0030B3A7 /* InputScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B31FB8631E24A70B0030B3A7 /* InputScrollView.m */; };
+		B31FB8661E24A7840030B3A7 /* InputScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31FB8651E24A7840030B3A7 /* InputScrollView.xib */; };
 		B34ACF4B1E1E1FE100DCD5E6 /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34ACF4A1E1E1FE100DCD5E6 /* InputView.xib */; };
-		B34ACF4E1E1E24F700DCD5E6 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = B34ACF4D1E1E24F700DCD5E6 /* InputView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +69,14 @@
 		8BECB83434DE3A5B42D800F1 /* Pods-YTPAccessoryInputView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTPAccessoryInputView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTPAccessoryInputView_Tests/Pods-YTPAccessoryInputView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A423F2000C6E792EB5113E8C /* Pods_YTPAccessoryInputView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTPAccessoryInputView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31485811E1D7D7A007FCF99 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B31FB85C1E248DA40030B3A7 /* YTPCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPCollectionViewController.h; sourceTree = "<group>"; };
+		B31FB85D1E248DA40030B3A7 /* YTPCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPCollectionViewController.m; sourceTree = "<group>"; };
+		B31FB85F1E249DBF0030B3A7 /* YTPChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPChatCell.h; sourceTree = "<group>"; };
+		B31FB8601E249DBF0030B3A7 /* YTPChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPChatCell.m; sourceTree = "<group>"; };
+		B31FB8621E24A70B0030B3A7 /* InputScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputScrollView.h; sourceTree = "<group>"; };
+		B31FB8631E24A70B0030B3A7 /* InputScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputScrollView.m; sourceTree = "<group>"; };
+		B31FB8651E24A7840030B3A7 /* InputScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputScrollView.xib; sourceTree = "<group>"; };
 		B34ACF4A1E1E1FE100DCD5E6 /* InputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
-		B34ACF4C1E1E24F700DCD5E6 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
-		B34ACF4D1E1E24F700DCD5E6 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
 		B5A519EC0D3B3DC0926D2EC1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BA3DD80A585D9A994AE855DB /* Pods-YTPAccessoryInputView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTPAccessoryInputView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTPAccessoryInputView_Tests/Pods-YTPAccessoryInputView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1816272C73A7A1B19A69956 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -151,14 +159,19 @@
 				6003F59C195388D20070C39A /* YTPAppDelegate.h */,
 				6003F59D195388D20070C39A /* YTPAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				B34ACF4A1E1E1FE100DCD5E6 /* InputView.xib */,
+				B31FB8651E24A7840030B3A7 /* InputScrollView.xib */,
+				B31FB8621E24A70B0030B3A7 /* InputScrollView.h */,
+				B31FB8631E24A70B0030B3A7 /* InputScrollView.m */,
+				B31FB85F1E249DBF0030B3A7 /* YTPChatCell.h */,
+				B31FB8601E249DBF0030B3A7 /* YTPChatCell.m */,
 				6003F5A5195388D20070C39A /* YTPViewController.h */,
 				6003F5A6195388D20070C39A /* YTPViewController.m */,
+				B31FB85C1E248DA40030B3A7 /* YTPCollectionViewController.h */,
+				B31FB85D1E248DA40030B3A7 /* YTPCollectionViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 				B31485811E1D7D7A007FCF99 /* LaunchScreen.storyboard */,
-				B34ACF4A1E1E1FE100DCD5E6 /* InputView.xib */,
-				B34ACF4C1E1E24F700DCD5E6 /* InputView.h */,
-				B34ACF4D1E1E24F700DCD5E6 /* InputView.m */,
 			);
 			name = "Example for YTPAccessoryInputView";
 			path = YTPAccessoryInputView;
@@ -292,6 +305,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				B31FB8661E24A7840030B3A7 /* InputScrollView.xib in Resources */,
 				B31485821E1D7D7A007FCF99 /* LaunchScreen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				B34ACF4B1E1E1FE100DCD5E6 /* InputView.xib in Resources */,
@@ -407,7 +421,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* YTPAppDelegate.m in Sources */,
-				B34ACF4E1E1E24F700DCD5E6 /* InputView.m in Sources */,
+				B31FB8641E24A70B0030B3A7 /* InputScrollView.m in Sources */,
+				B31FB85E1E248DA40030B3A7 /* YTPCollectionViewController.m in Sources */,
+				B31FB8611E249DBF0030B3A7 /* YTPChatCell.m in Sources */,
 				6003F5A7195388D20070C39A /* YTPViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

@@ -103,7 +103,7 @@ static char kYTPInternalCollectionViewKey;
 }
 
 
-#pragma mark - Setup
+#pragma mark - Public API
 
 - (void)ytp_configureAccessoryInputView {
     // Set bottom constraint
@@ -114,7 +114,7 @@ static char kYTPInternalCollectionViewKey;
     // Get textfield
     [self setInternalTextField];
     
-    // Get TableView
+    // Get TableView/CollectionView
     [self setInternalScrollView];
     
     // Container view
@@ -169,8 +169,8 @@ static char kYTPInternalCollectionViewKey;
             // bring container view up
             self.accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, -self.accessoryInputView.frame.size.height);
         } completion:^(BOOL finished) {
-            // scroll tableview
-            [self scrollTableViewToBottom:NO];
+            // scroll
+            [self scrollScrollViewToBottom:NO];
         }];
     }
     
@@ -194,6 +194,21 @@ static char kYTPInternalCollectionViewKey;
             self.ytp_customButton.selected = NO;
         }];
     }
+}
+
+- (void)ytp_resetViewControllerStatus {
+    // remove associated objects
+    objc_setAssociatedObject(self, kYTPAccessoryInputViewKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, kYTPInputToolBarKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, kYTPInputToolBarBottomSpaceKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, kYTPInputToolBarTextFieldKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, kYTPAccessoryInputViewTriggerButtonKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, kYTPInternalTableViewKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, kYTPInternalCollectionViewKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    // remove keyboard observer
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 
@@ -257,14 +272,14 @@ static char kYTPInternalCollectionViewKey;
             self.accessoryInputView.transform = CGAffineTransformMakeTranslation(0.0, self.accessoryInputView.frame.size.height);
             self.inputToolBarBottomSpace.constant = kbHeight;
         } completion:^(BOOL finished) {
-            [self scrollTableViewToBottom:NO];
+            [self scrollScrollViewToBottom:NO];
             self.ytp_customButton.selected = NO;
         }];
     } else {
         [UIView animateWithDuration:rate.floatValue animations:^{
             self.inputToolBarBottomSpace.constant = kbHeight;
         } completion:^(BOOL finished) {
-            [self scrollTableViewToBottom:NO];
+            [self scrollScrollViewToBottom:NO];
         }];
     }
 }
@@ -285,7 +300,7 @@ static char kYTPInternalCollectionViewKey;
 - (void)associateConstraint {
     for (NSLayoutConstraint *constraint in self.view.constraints) {
         if ([self isBottomConstraint:constraint]) {
-            NSLog(@"Found constriant: %f", constraint.constant);
+            //NSLog(@"Found constriant: %f", constraint.constant);
             self.inputToolBarBottomSpace = constraint;
             break;
         }
@@ -305,7 +320,7 @@ static char kYTPInternalCollectionViewKey;
 }
 
 
-#pragma mark - Private Helper - TableView
+#pragma mark - Private Helper - ScrollView
 
 - (void)scrollTableViewToBottom:(BOOL)animated {
     NSInteger sections = self.ytp_internalTableView.numberOfSections;
@@ -315,7 +330,6 @@ static char kYTPInternalCollectionViewKey;
     }
     
     NSInteger rowsInLastSection = [self.ytp_internalTableView numberOfRowsInSection:sections-1];
-    
     [self.ytp_internalTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:rowsInLastSection-1 inSection:sections-1] atScrollPosition:UITableViewScrollPositionBottom animated:animated];
 }
 
@@ -327,8 +341,15 @@ static char kYTPInternalCollectionViewKey;
     }
     
     NSInteger itemsInLastSection = [self.ytp_internalCollectionView numberOfItemsInSection:sections-1];
-    
     [self.ytp_internalCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:itemsInLastSection-1 inSection:sections-1] atScrollPosition:UICollectionViewScrollPositionBottom animated:animated];
+}
+
+- (void)scrollScrollViewToBottom:(BOOL)animated {
+    if (self.ytp_internalTableView) {
+        [self scrollTableViewToBottom:NO];
+    } else {
+        [self scrollCollectionViewToBottom:NO];
+    }
 }
 
 

@@ -1,14 +1,14 @@
 //
-//  InputView.m
+//  InputScrollView.m
 //  YTPAccessoryInputView
 //
-//  Created by Carl Pan on 1/4/17.
+//  Created by Carl Pan on 1/9/17.
 //  Copyright © 2017 carlpan. All rights reserved.
 //
 
-#import "InputView.h"
+#import "InputScrollView.h"
 
-@implementation InputView
+@implementation InputScrollView
 
 /*
 // Only override drawRect: if you perform custom drawing.
