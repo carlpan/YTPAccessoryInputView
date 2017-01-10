@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YTPAccessoryInputView'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = 'A category that adds accessory input view to custom input tool bar.'
 
 # This description is used to generate tags and improve search results.
